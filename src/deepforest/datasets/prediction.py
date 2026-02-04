@@ -401,13 +401,13 @@ class MultiImage(PredictionDataset):
 
         batch_sublist_lengths = original_batch_structure[prediction_index]
         formatted_results = []
-
         # batch_sublist_lengths[i] = [image_idx, window_idx] corresponds to batch[i]
-        for batch_position, (image_idx, window_idx) in enumerate(batch_sublist_lengths):
+        for batch_position, (_image_idx, window_idx) in enumerate(batch_sublist_lengths):
             prediction = batch[batch_position]
 
             # Format with correct image index and window index
-            result = self.format_batch(prediction, image_idx, window_idx)
+            # result = self.format_batch(prediction, image_idx, window_idx)
+            result = self.format_batch(prediction, prediction_index, window_idx)
             if result is not None:
                 formatted_results.append(result)
 

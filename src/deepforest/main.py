@@ -648,7 +648,6 @@ class deepforest(pl.LightningModule):
         mosaic_results["label"] = mosaic_results.label.apply(
             lambda x: self.numeric_to_label_dict[x]
         )
-
         if paths[0] is not None:
             root_dir = os.path.dirname(paths[0])
         else:
